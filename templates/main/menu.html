@@ -1,0 +1,26 @@
+{% extends 'partial/base.html' %}
+{% block title %} Food Menu {% endblock title %}
+{% block content %}
+<section class="my-4">
+<div class="card p-4" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 10px">
+        <div class="container">
+            <div class="row gy-3">
+        {% for cat in cat_menu %}
+        <div class="col-sm-3">
+            <a href="{% url 'product' %}?category={{ cat.name }}" class="text-decoration-none">
+                <div class="card border-0">
+                <img src="{{ cat.image }}" class="card-img-top img-fluid" alt="..." style="height: 200px;">
+                <div class="card-body">
+                    <p class="card-text text-dark">
+                        {{ cat.name }}
+                    </p>
+                </div>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

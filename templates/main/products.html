@@ -1,0 +1,30 @@
+{% extends 'partial/base.html' %}
+{% block title %} Food Menu {% endblock title %}
+{% block content %}
+<section class="my-4">
+    <div class="row justify-content-center align-items-center my-4">
+        <h4 class="bg-warning text-center text-light p-2" style="width: 60%; border-radius: 20px;">Our {{category}}</h4>
+    </div>
+
+
+    <div class="card p-4" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 10px">
+        <div class="container">
+            <div class="row gy-3">
+                {% for product in products %}
+                <div class="col-sm-3">
+                    <div class="card border-0">
+                        <img src="{{ product.image }}" class="card-img-top" alt="..." style="height: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.description|truncatewords:20 }}</p>
+                            <a href="#" data-action="add" data-product="{{ product.id }}" class="btn btn-warning addtoCart"> <i class="fa-solid fa-cart-shopping"></i> Add to cart</a>
+                            <span class="badge rounded-pill bg-warning text-dark float-end">${{ product.price }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

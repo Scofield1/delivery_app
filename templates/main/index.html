@@ -1,0 +1,13 @@
+{% extends 'partial/base.html' %}
+{% block title %} Food Ordering App {% endblock title %}
+{% block content %}
+<section id="center-text">
+<!--    <h1>We <span id="element" class="text-warning"></span></h1>-->
+    <h1 class="text-light">Food is Available</h1>
+    <a href="{% url 'menu' %}" id="btn-opt" class="btn  btn-outline-warning mt-4 mt-sm-5 text-center">
+        <i class="fa-solid fa-utensils"></i> Order Now!
+    </a>
+
+</section>
+
+{% endblock content %}

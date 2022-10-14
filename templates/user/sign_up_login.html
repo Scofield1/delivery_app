@@ -1,0 +1,53 @@
+{% extends 'partial/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Food Menu {% endblock title %}
+{% block content %}
+<section class="my-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 bg-light">
+                {% if page == 'register'%}
+                <div class="p-3">
+                    <div>
+                        <h3>Create Account</h3>
+                        Already have an account <a href="{% url 'login' %}">Login</a>
+                        <hr class="my-4">
+                    </div>
+
+                    <form method="POST">{% csrf_token %}
+                        <div class="row">
+                            <div class="col-6">{{ form.first_name|as_crispy_field }}</div>
+                            <div class="col-6">{{ form.last_name|as_crispy_field }}</div>
+                            {{ form.username|as_crispy_field }}
+                            {{ form.email|as_crispy_field }}
+                            <div class="col-6">{{ form.password1|as_crispy_field }}</div>
+                            <div class="col-6">{{ form.password2|as_crispy_field }}</div>
+                        </div>
+                        <div class="d-grid">
+                            <input class="btn btn-warning" type="submit">
+                        </div>
+                        <input type="submit" value="Submit">
+                    </form>
+                    <hr class="mt-4">
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="bg-light p-3">
+            <h3>Log in</h3>
+            Don't have an account <a href="{% url 'register' %}">Sign up</a>
+            <hr>
+            <form method="POST">{% csrf_token %}
+                <p>Username:</p>
+                <input type="text" name="username" placeholder="username" class="form-control">
+                <p>Password:</p>
+                <input type="password" placeholder="password" name="password1" class="form-control">
+                <div class="d-grid mt-4">
+                    <input class="btn btn-warning" type="submit">
+                </div>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

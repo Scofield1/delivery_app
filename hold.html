@@ -1,0 +1,84 @@
+<section class="my-4 text-white">
+    <div class="card p-4" style="background-color: rgba(0, 0, 0, 0.5); border-radius: 10px">
+        <div class='container' style="width: 70%">
+            	    <table class="table table-light table-hover">
+        <thead>
+          <tr>
+            <th scope="col"><button class="btn btn-warning" type="button">Continue Shopping <i class="fa-solid fa-arrow-right"></i> </button></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <th scope="row">Items: {{ c.get_items_total }}</th>
+            <td></td
+            <td>Total: ${{ c.get_cart_total }}</td>
+            <!-- <td></td> -->
+            <td><button class="btn btn-warning" type="button">Checkout <i class="fa-solid fa-arrow-right"></i></button></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+        <div class = 'container' style = 'margin-top: 50px; width: 70%'>
+            <table class="table table-light table-hover">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Item</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+    cart[id]
+    {% for items in cartitems %}
+      <tr>
+        <th scope="row"><div id = "cart_image"><img src="{{ items.menu.image }}" ></div></th>
+        <td>{{ items.menu.name }}</td>
+        <td>${{ items.menu.price }}</td>
+        <td>
+            <input class="quantity" min="0" style='width:50px; padding-left: 5px' type='number' value ="{{ items.quantity }}">
+        </td>
+        <td>{{ items.get_total }}</td>
+      </tr>
+    {% endfor %}
+
+
+    </tbody>
+  </table>
+        </div>
+
+    </div>
+</section>
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="bg-light p-3">
+                <h3>Log in</h3>
+                <hr>
+                <form method="POST" action="">{% csrf_token %}
+                    <p>Username:</p>
+                    <input type="text" name="username" class="form-control">
+                    <p>Password:</p>
+                    <input type="password" name="password" class="form-control">
+                    <input type="submit" value="Log In" class="btn btn-primary mt-3">
+                </form>
+            </div>
+        </div>
+    </div>
+
+              <form method="POST">{% csrf_token %}
+                  <div class="row">
+                      <div class="col-6">{{ form.first_name|as_crispy_field }}</div>
+                      <div class="col-6">{{ form.last_name|as_crispy_field }}</div>
+                      {{ form.username|as_crispy_field }}
+                      {{ form.email|as_crispy_field }}
+                      <div class="col-6">{{ form.password1|as_crispy_field }}</div>
+                      <div class="col-6">{{ form.password2|as_crispy_field }}</div>
+                  </div>
+              <input class="btn btn-warning" type="submit">
+              </form>
