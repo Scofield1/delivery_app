@@ -1,0 +1,168 @@
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.bb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 200px;
+}
+#center-text {
+  width: 80%;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+#btn-opt {
+  border-radius: 30px;
+  font-size: 22px;
+  width: 270px;
+}
+#preloader {
+  border: 6px solid #e5e5e5;
+  border-top-color: #ffc107;
+  border-radius: 50%;
+  position: absolute;
+  top: 50;
+  left: calc(50% - 32px);
+  width: 55px;
+  height: 55px;
+  z-index: 100;
+  animation: preloader 1.2s;
+  animation-fill-mode: forwards;
+}
+@keyframes preloader {
+  to {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+#bg-spinner {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  background: rgba(1, 1, 1, 0.7);
+}
+#position-spinner {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+#spinner {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: 6px #d3d3d3 solid;
+  border-top: 6px #ffc107 solid;
+  animation: loading 1s infinite linear;
+}
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: hsl(0, 0%, 30%);
+}
+
+.box-element {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 200px;
+  -webkit-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+  -moz-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+  box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+}
+
+.product {
+  border-radius: 0 0 4px 4px;
+}
+
+#cart-icon {
+  width: 25px;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+#cart-total {
+  display: block;
+  text-align: center;
+  color: #fff;
+  background-color: red;
+  width: 20px;
+  height: 25px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.col-lg-4,
+.col-lg-6,
+.col-lg-8,
+.col-lg-12 {
+  margin-top: 10px;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.row-image {
+  width: 100px;
+}
+
+.form-field {
+  width: 250px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.cart-row {
+  display: flex;
+  align-items: flex-stretch;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ececec;
+}
+
+.quantity {
+  display: inline-block;
+  font-weight: 700;
+  padding-right: 10px;
+}
+
+.chg-quantity {
+  width: 12px;
+  cursor: pointer;
+  display: block;
+  margin-top: 5px;
+  transition: 0.1s;
+}
+
+.chg-quantity:hover {
+  opacity: 0.6;
+}
+
+.hidden {
+  display: none !important;
+}
