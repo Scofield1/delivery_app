@@ -131,6 +131,7 @@ STATIC_ROOT = 'assest'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
+CSRF_TRUSTED_ORIGINS = ['https://web-production-31de.up.railway.app', 'https://*.127.0.0.1']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
