@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import *
 import datetime
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import *
@@ -48,7 +49,7 @@ def cart(request):
     context = {'items': items, 'order': order, 'cartitems': cartitems}
     return render(request, 'main/cart.html', context)
 
-
+@login_required(login_url='login')
 def checkout(request):
     data = cartData(request)
     cartitems = data['cartitems']
